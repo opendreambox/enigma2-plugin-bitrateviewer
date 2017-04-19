@@ -1,4 +1,13 @@
-include $(top_srcdir)/Rules-cpp.mak
+AM_CPPFLAGS = \
+	@PYTHON_CPPFLAGS@ \
+	-include Python.h
+
+AM_CXXFLAGS = \
+	-Wall \
+	-fno-exceptions \
+	@ENIGMA2_CFLAGS@ \
+	@LIBCRYPTO_CFLAGS@ \
+	@PTHREAD_CFLAGS@
 
 plugindir = $(libdir)/enigma2/python/Plugins/Extensions/BitrateViewer
 
@@ -9,7 +18,9 @@ bitratecalc_la_SOURCES = \
 	bitratecalc.h
 
 bitratecalc_la_LDFLAGS = \
-	$(PLUGIN_LIBTOOL_FLAGS)
+	-avoid-version \
+	-module \
+	-shared
 
 bitratecalc_la_LIBADD = \
 	@LIBCRYPTO_LIBS@
