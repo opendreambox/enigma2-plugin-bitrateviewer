@@ -6,7 +6,6 @@ AM_CXXFLAGS = \
 	-Wall \
 	-fno-exceptions \
 	@ENIGMA2_CFLAGS@ \
-	@LIBCRYPTO_CFLAGS@ \
 	@PTHREAD_CFLAGS@
 
 plugindir = $(libdir)/enigma2/python/Plugins/Extensions/BitrateViewer
@@ -22,5 +21,4 @@ bitratecalc_la_LDFLAGS = \
 	-module \
 	-shared
 
-bitratecalc_la_LIBADD = \
-	@LIBCRYPTO_LIBS@
+
